@@ -12,14 +12,10 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     final url = Uri.parse('https://jsonplaceholder.typicode.com/users/$id');
     try {
       final response = await http.get(url);
-      if (response.statusCode != 200 || response.statusCode != 201) {
-        debugPrint('${response.statusCode}: ${response.reasonPhrase}');
-        throw Exception('Failed to fetch user: ${response.statusCode}: ${response.reasonPhrase}');
-      }
       final user = UserModel.fromJson(response.body);
       return user;
-    } catch (e) {
-      debugPrint('Failed to fetch user: $e');
+    } catch (e, s) {
+      debugPrintStack(stackTrace: s, label: 'Failed to fetch user: $e');
       throw Exception('Network error: $e');
     }
   }

@@ -6,7 +6,7 @@ class User extends Equatable {
     required this.name,
   });
 
-  final String id;
+  final int id;
   final String name;
 
   @override

@@ -14,12 +14,12 @@ class UserModel extends User {
 
   UserModel.fromMap(Map<String, dynamic> json)
       : this(
-          id: json['id'] == null ? '' : json['id'] as String,
+          id: int.tryParse(json['id'].toString()) ?? 0,
           name: json['name'] == null ? '' : json['name'] as String,
         );
 
   UserModel copyWith({
-    String? id,
+    int? id,
     String? name,
   }) {
     return UserModel(

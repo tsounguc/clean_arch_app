@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:clean_arch_app/features/user_profile/domain/entities/user.dart';
 
 class UserModel extends User {
@@ -6,12 +8,15 @@ class UserModel extends User {
     required super.name,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
-      id: json['id'] as String,
-      name: json['name'] as String,
-    );
-  }
+  factory UserModel.fromJson(String source) => UserModel.fromMap(
+        jsonDecode(source) as Map<String, dynamic>,
+      );
+
+  UserModel.fromMap(Map<String, dynamic> json)
+      : this(
+          id: json['id'] == null ? '' : json['id'] as String,
+          name: json['name'] == null ? '' : json['name'] as String,
+        );
 
   UserModel copyWith({
     String? id,

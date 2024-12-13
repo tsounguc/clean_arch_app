@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:clean_arch_app/features/user_profile/domain/entities/user.dart';
-import 'package:clean_arch_app/features/user_profile/domain/use_cases/get_user.dart';
+import 'package:clean_arch_app/features/user_profile/domain/use_cases/get_user_profile.dart';
 import 'package:equatable/equatable.dart';
 
 part 'user_profile_state.dart';

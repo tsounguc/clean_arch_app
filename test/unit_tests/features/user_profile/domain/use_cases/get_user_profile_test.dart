@@ -9,7 +9,7 @@ import 'package:mocktail/mocktail.dart';
 class MockUserRepository extends Mock implements UserRepository {}
 
 void main() {
-  late MockUserRepository repository;
+  late UserRepository repository;
   late GetUserProfile getPostsUseCase;
 
   setUp(() {

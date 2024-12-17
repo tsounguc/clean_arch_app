@@ -4,8 +4,10 @@ import 'package:clean_arch_app/features/user_profile/presentation/user_profile_c
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() async {
-  await setUpDependencies();
+void main({bool runDependencies = true}) async {
+  if (runDependencies) {
+    await setUpDependencies();
+  }
   runApp(const MyApp());
 }
 
